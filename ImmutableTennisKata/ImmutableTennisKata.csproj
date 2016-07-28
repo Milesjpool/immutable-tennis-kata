@@ -39,13 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Scores\Fifteen.cs" />
-    <Compile Include="Scores\Forty.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="Scores\IScore.cs" />
-    <Compile Include="Scores\Love.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scores\Thirty.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
