@@ -26,11 +26,7 @@ namespace ImmutableTennisKata
 
 		public Game PlayerOneScores()
 		{
-			if (_playerOneScore.GetType() == typeof (Love))
-				return new Game(new Fifteen(), _playerTwoScore);
-			if (_playerOneScore.GetType() == typeof (Fifteen))
-				return new Game(new Thirty(), _playerTwoScore);
-			return new Game(new Forty(), _playerTwoScore);
+			return new Game(_playerOneScore.AddOne(), _playerTwoScore);
 		}
 	}
 
@@ -41,6 +37,11 @@ namespace ImmutableTennisKata
 		{
 			return "40";
 		}
+
+		public IScore AddOne()
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	public class Thirty : IScore
@@ -48,6 +49,11 @@ namespace ImmutableTennisKata
 		public override string ToString()
 		{
 			return "30";
+		}
+
+		public IScore AddOne()
+		{
+			return new Forty();
 		}
 	}
 
@@ -57,6 +63,11 @@ namespace ImmutableTennisKata
 		{
 			return "15";
 		}
+
+		public IScore AddOne()
+		{
+			return new Thirty();
+		}
 	}
 
 	public class Love : IScore
@@ -65,9 +76,15 @@ namespace ImmutableTennisKata
 		{
 			return "Love";
 		}
+
+		public IScore AddOne()
+		{
+			return new Fifteen();
+		}
 	}
 
 	public interface IScore
 	{
+		IScore AddOne();
 	}
 }
