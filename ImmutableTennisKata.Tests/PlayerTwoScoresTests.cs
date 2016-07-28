@@ -34,5 +34,17 @@ namespace ImmutableTennisKata.Tests
 
 			Assert.That(game.Score, Is.EqualTo("Love-40"));
 		}
+
+		[Test]
+		public void PlayerWinsAfterFourPoints()
+		{
+			var game = new Game()
+				.PlayerTwoScores()
+				.PlayerTwoScores()
+				.PlayerTwoScores()
+				.PlayerTwoScores();
+
+			Assert.That(game.Score, Is.EqualTo("Player 2 Game"));
+		}
 	}
 }
