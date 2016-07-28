@@ -1,4 +1,4 @@
-﻿using System;
+﻿using ImmutableTennisKata.Scores;
 
 namespace ImmutableTennisKata
 {
@@ -28,63 +28,5 @@ namespace ImmutableTennisKata
 		{
 			return new Game(_playerOneScore.AddOne(), _playerTwoScore);
 		}
-	}
-
-
-	public class Forty : IScore
-	{
-		public override string ToString()
-		{
-			return "40";
-		}
-
-		public IScore AddOne()
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	public class Thirty : IScore
-	{
-		public override string ToString()
-		{
-			return "30";
-		}
-
-		public IScore AddOne()
-		{
-			return new Forty();
-		}
-	}
-
-	public class Fifteen : IScore
-	{
-		public override string ToString()
-		{
-			return "15";
-		}
-
-		public IScore AddOne()
-		{
-			return new Thirty();
-		}
-	}
-
-	public class Love : IScore
-	{
-		public override string ToString()
-		{
-			return "Love";
-		}
-
-		public IScore AddOne()
-		{
-			return new Fifteen();
-		}
-	}
-
-	public interface IScore
-	{
-		IScore AddOne();
 	}
 }
