@@ -1,0 +1,46 @@
+*_proc
+build/temp
+
+[Bb]in/
+[Oo]bj/
+
+packages/
+.nuget/*.exe
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+*_i.c
+*_p.c
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.log
+*.vspscc
+*.vssscc
+.builds
+
+# ReSharper is a .NET coding add-in
+_ReSharper*
+*DotSettings
+
+Backup*/
+UpgradeLog*.XML
+
+*~
+*.swp
