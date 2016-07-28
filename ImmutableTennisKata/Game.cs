@@ -2,21 +2,25 @@
 {
 	public class Game
 	{
-		private readonly string _score;
+		private readonly string _playerOneScore;
+		private readonly string _playerTwoScore;
 
-		public Game(string score = "Love-Love")
+		public Game(string playerOneScore = "Love", string playerTwoScore = "Love")
 		{
-			_score = score;
+			_playerOneScore = playerOneScore;
+			_playerTwoScore = playerTwoScore;
 		}
 
 		public string Score
 		{
-			get { return _score; }
+			get { return _playerOneScore + "-" + _playerTwoScore; }
 		}
 
 		public Game PlayerOneScores()
 		{
-			return new Game("15-Love");
+			if (string.Equals(_playerOneScore, "Love"))
+				return new Game("15", _playerTwoScore);
+			return new Game("30", _playerTwoScore);
 		}
 	}
 }
