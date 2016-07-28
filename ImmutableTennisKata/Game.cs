@@ -1,11 +1,19 @@
-﻿namespace ImmutableTennisKata
+﻿using System;
+
+namespace ImmutableTennisKata
 {
 	public class Game
 	{
-		private readonly string _playerOneScore;
-		private readonly string _playerTwoScore;
+		private readonly IScore _playerOneScore;
+		private readonly IScore _playerTwoScore;
 
-		public Game(string playerOneScore = "Love", string playerTwoScore = "Love")
+		public Game()
+		{
+			_playerOneScore = new Love();
+			_playerTwoScore = new Love();
+		}
+
+		public Game(IScore playerOneScore, IScore playerTwoScore)
 		{
 			_playerOneScore = playerOneScore;
 			_playerTwoScore = playerTwoScore;
@@ -18,11 +26,48 @@
 
 		public Game PlayerOneScores()
 		{
-			if (string.Equals(_playerOneScore, "Love"))
-				return new Game("15", _playerTwoScore);
-			if (string.Equals(_playerOneScore, "15"))
-				return new Game("30", _playerTwoScore);
-			return new Game("40", _playerTwoScore);
+			if (_playerOneScore.GetType() == typeof (Love))
+				return new Game(new Fifteen(), _playerTwoScore);
+			if (_playerOneScore.GetType() == typeof (Fifteen))
+				return new Game(new Thirty(), _playerTwoScore);
+			return new Game(new Forty(), _playerTwoScore);
 		}
+	}
+
+
+	public class Forty : IScore
+	{
+		public override string ToString()
+		{
+			return "40";
+		}
+	}
+
+	public class Thirty : IScore
+	{
+		public override string ToString()
+		{
+			return "30";
+		}
+	}
+
+	public class Fifteen : IScore
+	{
+		public override string ToString()
+		{
+			return "15";
+		}
+	}
+
+	public class Love : IScore
+	{
+		public override string ToString()
+		{
+			return "Love";
+		}
+	}
+
+	public interface IScore
+	{
 	}
 }
