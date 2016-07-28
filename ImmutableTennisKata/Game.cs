@@ -13,7 +13,7 @@ namespace ImmutableTennisKata
 			_playerTwoScore = new Love();
 		}
 
-		public Game(IScore playerOneScore, IScore playerTwoScore)
+		private Game(IScore playerOneScore, IScore playerTwoScore)
 		{
 			_playerOneScore = playerOneScore;
 			_playerTwoScore = playerTwoScore;
@@ -27,6 +27,11 @@ namespace ImmutableTennisKata
 		public Game PlayerOneScores()
 		{
 			return new Game(_playerOneScore.AddOne(), _playerTwoScore);
+		}
+
+		public Game PlayerTwoScores()
+		{
+			return new Game(_playerOneScore, _playerTwoScore.AddOne());
 		}
 	}
 }

@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="PlayerOneScoresTests.cs" />
     <Compile Include="NewGameTests.cs" />
+    <Compile Include="PlayerTwoScoresTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
