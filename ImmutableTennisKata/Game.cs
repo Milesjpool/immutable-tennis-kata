@@ -20,7 +20,9 @@
 		{
 			if (string.Equals(_playerOneScore, "Love"))
 				return new Game("15", _playerTwoScore);
-			return new Game("30", _playerTwoScore);
+			if (string.Equals(_playerOneScore, "15"))
+				return new Game("30", _playerTwoScore);
+			return new Game("40", _playerTwoScore);
 		}
 	}
 }
